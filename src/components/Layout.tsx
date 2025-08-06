@@ -6,7 +6,7 @@ import { Drawer } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 import '../assets/styles/Layout.css';
 import '../assets/styles/Menu.css';
-import '../assets/styles/Content.css';
+import '../assets/styles/content.css';
 
 const Layout: React.FC = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
