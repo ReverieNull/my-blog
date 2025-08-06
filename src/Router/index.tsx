@@ -466,7 +466,7 @@ const router = createBrowserRouter([
      { path: 'welcome', element: <Welcome /> },
   // 404
   { path: '*', element: <h1>404 Not Found</h1> }
-], { basename: '/my-blog' });
+], { basename: '/' });
 
 
 export default function AppRouter() {
