@@ -24,6 +24,7 @@ export default function Post() {
       <div className="post-content">
         <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
       </div>
+
     </article>
   );
 }
