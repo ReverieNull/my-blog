@@ -155,7 +155,7 @@ const router = createBrowserRouter([
     path: '/',
     element: <Layout />,      // 公共外壳
     children: [
-      { index: true, element: <FrontendWelcome /> }, 
+      { index: true, element: <Welcome /> }, 
   
       {
         path: 'frontend',
