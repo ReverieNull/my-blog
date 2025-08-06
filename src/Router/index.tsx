@@ -153,6 +153,10 @@ import OtherOBC from '../pages/frontend/Other/OBC'
 const router = createBrowserRouter([
   {
     path: '/',
+    element: <Welcome />,
+  },
+  {
+    path: '/app',
     element: <Layout />,      // 公共外壳
     children: [
       { index: true, element: <Welcome /> }, 
@@ -463,7 +467,7 @@ const router = createBrowserRouter([
       },
     ]
   },
-     { path: 'welcome', element: <Welcome /> },
+
   // 404
   { path: '*', element: <h1>404 Not Found</h1> }
 ], { basename: '/' });

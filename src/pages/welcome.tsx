@@ -9,9 +9,9 @@ export default function Welcome() {
         <div className="own-box">
           <h1 className="welcome-title">欢迎来到我的前端指南</h1>
           <div className="welcome-buttons">
-            <Link to="/frontend" className="welcome-btn">前端</Link>
-            <Link to="/harmonyos" className="welcome-btn">鸿蒙</Link>
-            <Link to="/LLM" className="welcome-btn">大模型</Link>
+            <Link to="/app/frontend" className="welcome-btn">前端</Link>
+            <Link to="/app/harmonyos" className="welcome-btn">鸿蒙</Link>
+            <Link to="/app/LLM" className="welcome-btn">大模型</Link>
           </div>
         </div>
       </main>
