@@ -21,6 +21,6 @@ export default defineConfig({
     include: /\.[jt]sx?$/,
     exclude: [],
   },
-  base: '/my-blog/',
+  base: '/',
   assetsInclude: ['**/*.md'],
 });
