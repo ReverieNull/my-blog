@@ -1,0 +1,21 @@
+/* src/assets/styles/Content.css */
+.content { 
+  overflow: auto;
+  box-sizing: border-box;
+  flex: 1;  
+  margin-left: 200px;
+  display: flex;
+  justify-content: center;
+}
+
+/* 暗色夜空 */
+body.dark-mode .content {
+  background: linear-gradient(135deg, #0c1445, #070b1f, #000);
+  color: #fff;
+}
+
+/* 护眼绿 */
+body.eye-protection-mode .content {
+  background: linear-gradient(135deg, #e8f5e980, #c8e6c980);
+  color: #2e7d32;
+}

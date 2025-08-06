@@ -1,0 +1,35 @@
+/* 全局最简样式 */
+html,body {
+  margin: 0;
+  background: #fafafa;
+  color: #111;
+  line-height: 1.6;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+h1, h2, h3 {
+  margin: 0 0 0.5rem;
+}
+
+a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 40rem;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* 追加到 src/assets/styles/index.css 末尾 */
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* 隐藏浏览器滚动条 */
+}

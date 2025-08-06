@@ -1,0 +1,651 @@
+/* src/assets/styles/Menu.css */
+
+html, body {
+  height: auto;
+  margin: 0;
+  overflow: hidden;
+  overflow-x: hidden;
+}
+
+.menu-wrapper {
+  width: 200px;
+  heigtht: (100vh - 60px);
+  position: fixed;
+  flex-shrink: 0;
+  top: 70px;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 90;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  background: transparent;
+  border-right: none;
+}
+
+.menu-inner {
+  width: 200px;
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 15px 0;
+  border-radius: 0;
+  color: rgba(199, 206, 107, 0.9);
+  
+  /* 与Header统一的背景和特效 */
+
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(100, 120, 255, 0.2);
+  box-shadow: 0 0 20px rgba(80, 100, 255, 0.15);
+  
+  /* 未来感网格纹理 */
+  background-image: 
+    linear-gradient(rgba(100, 150, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100, 150, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  
+  /* 默认背景色 */
+  background-color: rgba(12, 15, 25, 0.92);
+  
+  /* 科技感动态流光边框 */
+  position: relative;
+  overflow: hidden;
+}
+
+/* 动态流光效果 */
+.menu-inner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: 0;
+  width: 2px;
+  height: 200%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0, 200, 255, 0.7),
+    rgba(0, 150, 255, 0.5),
+    transparent
+  );
+  animation: flowLight 3s linear infinite;
+}
+
+@keyframes flowLight {
+  0% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0%) rotate(0deg);
+  }
+}
+
+/* ---------- 与Header统一的主题 ---------- */
+
+/* 默认/暗色夜空 */
+body.dark-mode .menu-inner{
+    color: #ff8c00; /* 设置亮橙色字体 */
+  background: 
+    linear-gradient(90deg, 
+      rgba(10, 12, 30, 0.98) 0%, 
+      rgba(15, 8, 40, 0.98) 100%), /* 深紫蓝渐变 */
+    linear-gradient(rgba(0, 0, 0, 0.15) 1px, transparent 1px);
+  box-shadow: 0 0 40px rgba(100, 80, 255, 0.3);
+  border-right: 1px solid rgba(100, 80, 255, 0.3);
+
+
+}
+body.dark-mode .header {
+  background: 
+    linear-gradient(90deg, 
+      rgba(10, 12, 30, 0.98) 0%, 
+      rgba(15, 8, 40, 0.98) 100%), /* 深紫蓝渐变 */
+    linear-gradient(rgba(0, 0, 0, 0.15) 1px, transparent 1px);
+  box-shadow: 0 0 40px rgba(100, 80, 255, 0.3);
+  border-right: 1px solid rgba(100, 80, 255, 0.3);
+}
+
+/* 护眼模式 */
+body.eye-protection-mode .menu-inner,
+body.eye-protection-mode .header {
+  background: 
+    linear-gradient(90deg, 
+      rgba(8, 30, 15, 0.98) 0%, 
+      rgba(5, 25, 15, 0.98) 100%), /* 深绿渐变 */
+    linear-gradient(rgba(0, 0, 0, 0.15) 1px, transparent 1px);
+  box-shadow: 0 0 40px rgba(0, 200, 120, 0.3);
+  border-right: 1px solid rgba(0, 230, 150, 0.3);
+}
+
+/* 动态流光主题适配 */
+body.dark-mode .menu-inner::before {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(180, 100, 255, 0.7),
+    rgba(160, 80, 255, 0.5),
+    transparent
+  );
+}
+
+body.eye-protection-mode .menu-inner::before {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0, 230, 150, 0.7),
+    rgba(0, 200, 120, 0.5),
+    transparent
+  );
+}
+
+/* 菜单项通用样式 */
+.ant-menu {
+  background: transparent !important;
+  border-right: none !important;
+  color: rgba(199, 206, 107, 0.9) !important;
+  font-family: 'Orbitron', sans-serif !important;
+}
+
+.ant-menu-submenu > .ant-menu {
+  background: rgba(0, 0, 0, 0.25) !important;
+}
+
+.ant-menu-item, 
+.ant-menu-submenu-title {
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1) !important;
+  margin: 4px 0 !important;
+  border-radius: 0 !important;
+  height: 42px !important;
+  line-height: 42px !important;
+  padding-left: 24px !important;
+}
+
+/* 默认悬停效果 */
+.ant-menu-item:hover, 
+.ant-menu-submenu-title:hover,
+.ant-menu-item-active, 
+.ant-menu-submenu-active > .ant-menu-submenu-title {
+  color: #ffffff !important;
+  background: rgba(100, 180, 255, 0.15) !important;
+}
+
+/* 当前选中项 */
+.ant-menu-item-selected {
+  background: linear-gradient(90deg, transparent, rgba(0, 150, 255, 0.3), transparent) !important;
+  color: #00ccff !important;
+  position: relative;
+}
+
+.ant-menu-item-selected::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 3px;
+  background: #00ccff;
+  box-shadow: 0 0 10px #00ccff;
+}
+
+/* 分隔线 */
+.ant-menu-item-divider {
+  background: rgba(100, 150, 255, 0.2) !important;
+  margin: 15px 0 !important;
+}
+
+/* ---------- 为不同菜单项设置主题色 ---------- */
+
+/* HTML - 橙色 */
+.menu-html .ant-menu-submenu-title,
+.menu-html .ant-menu-item {
+  --theme-color: #ff8c00;
+}
+.menu-html .ant-menu-submenu-title:hover,
+.menu-html .ant-menu-item:hover {
+  color: var(--theme-color) !important;
+}
+.menu-html .ant-menu-item-selected {
+  color: var(--theme-color) !important;
+}
+.menu-html .ant-menu-item-selected::after {
+  background: var(--theme-color);
+  box-shadow: 0 0 10px var(--theme-color);
+}
+
+/* CSS - 蓝色 */
+.menu-css .ant-menu-submenu-title,
+.menu-css .ant-menu-item {
+  --theme-color: #1e90ff;
+}
+.menu-css .ant-menu-submenu-title:hover,
+.menu-css .ant-menu-item:hover {
+  color: var(--theme-color) !important;
+}
+.menu-css .ant-menu-item-selected {
+  color: var(--theme-color) !important;
+}
+.menu-css .ant-menu-item-selected::after {
+  background: var(--theme-color);
+  box-shadow: 0 0 10px var(--theme-color);
+}
+
+/* JavaScript - 黄色 */
+.menu-javascript .ant-menu-submenu-title,
+.menu-javascript .ant-menu-item {
+  --theme-color: #ffd700;
+}
+.menu-javascript .ant-menu-submenu-title:hover,
+.menu-javascript .ant-menu-item:hover {
+  color: var(--theme-color) !important;
+}
+.menu-javascript .ant-menu-item-selected {
+  color: var(--theme-color) !important;
+}
+.menu-javascript .ant-menu-item-selected::after {
+  background: var(--theme-color);
+  box-shadow: 0 0 10px var(--theme-color);
+}
+
+/* React - 青色 */
+.menu-react .ant-menu-submenu-title,
+.menu-react .ant-menu-item {
+  --theme-color: #00ced1;
+}
+.menu-react .ant-menu-submenu-title:hover,
+.menu-react .ant-menu-item:hover {
+  color: var(--theme-color) !important;
+}
+.menu-react .ant-menu-item-selected {
+  color: var(--theme-color) !important;
+}
+.menu-react .ant-menu-item-selected::after {
+  background: var(--theme-color);
+  box-shadow: 0 0 10px var(--theme-color);
+}
+
+/* Vue - 绿色 */
+.menu-vue .ant-menu-submenu-title,
+.menu-vue .ant-menu-item {
+  --theme-color: #42b983;
+}
+.menu-vue .ant-menu-submenu-title:hover,
+.menu-vue .ant-menu-item:hover {
+  color: var(--theme-color) !important;
+}
+.menu-vue .ant-menu-item-selected {
+  color: var(--theme-color) !important;
+}
+.menu-vue .ant-menu-item-selected::after {
+  background: var(--theme-color);
+  box-shadow: 0 0 10px var(--theme-color);
+}
+
+/* 构建工具 - 紫色 */
+.menu-build .ant-menu-submenu-title,
+.menu-build .ant-menu-item {
+  --theme-color: #9370db;
+}
+.menu-build .ant-menu-submenu-title:hover,
+.menu-build .ant-menu-item:hover {
+  color: var(--theme-color) !important;
+}
+.menu-build .ant-menu-item-selected {
+  color: var(--theme-color) !important;
+}
+.menu-build .ant-menu-item-selected::after {
+  background: var(--theme-color);
+  box-shadow: 0 0 10px var(--theme-color);
+}
+
+/* 编译器 - 粉色 */
+.menu-compiler .ant-menu-submenu-title,
+.menu-compiler .ant-menu-item {
+  --theme-color: #ff69b4;
+}
+.menu-compiler .ant-menu-submenu-title:hover,
+.menu-compiler .ant-menu-item:hover {
+  color: var(--theme-color) !important;
+}
+.menu-compiler .ant-menu-item-selected {
+  color: var(--theme-color) !important;
+}
+.menu-compiler .ant-menu-item-selected::after {
+  background: var(--theme-color);
+  box-shadow: 0 0 10px var(--theme-color);
+}
+
+/* Git - 灰色 */
+.menu-git .ant-menu-submenu-title,
+.menu-git .ant-menu-item {
+  --theme-color: #a9a9a9;
+}
+.menu-git .ant-menu-submenu-title:hover,
+.menu-git .ant-menu-item:hover {
+  color: var(--theme-color) !important;
+}
+.menu-git .ant-menu-item-selected {
+  color: var(--theme-color) !important;
+}
+.menu-git .ant-menu-item-selected::after {
+  background: var(--theme-color);
+  box-shadow: 0 0 10px var(--theme-color);
+}
+
+/* CI/CD - 红色 */
+.menu-ci .ant-menu-submenu-title,
+.menu-ci .ant-menu-item {
+  --theme-color: #ff6b6b;
+}
+.menu-ci .ant-menu-submenu-title:hover,
+.menu-ci .ant-menu-item:hover {
+  color: var(--theme-color) !important;
+}
+.menu-ci .ant-menu-item-selected {
+  color: var(--theme-color) !important;
+}
+.menu-ci .ant-menu-item-selected::after {
+  background: var(--theme-color);
+  box-shadow: 0 0 10px var(--theme-color);
+}
+
+/* 网络 - 天蓝色 */
+.menu-network .ant-menu-submenu-title,
+.menu-network .ant-menu-item {
+  --theme-color: #87ceeb;
+}
+.menu-network .ant-menu-submenu-title:hover,
+.menu-network .ant-menu-item:hover {
+  color: var(--theme-color) !important;
+}
+.menu-network .ant-menu-item-selected {
+  color: var(--theme-color) !important;
+}
+.menu-network .ant-menu-item-selected::after {
+  background: var(--theme-color);
+  box-shadow: 0 0 10px var(--theme-color);
+}
+
+/* 前端工程化 - 青橙色 */
+.menu-engineering .ant-menu-submenu-title,
+.menu-engineering .ant-menu-item {
+  --theme-color: #00b894;
+}
+.menu-engineering .ant-menu-submenu-title:hover,
+.menu-engineering .ant-menu-item:hover {
+  color: var(--theme-color) !important;
+}
+.menu-engineering .ant-menu-item-selected {
+  color: var(--theme-color) !important;
+}
+.menu-engineering .ant-menu-item-selected::after {
+  background: var(--theme-color);
+  box-shadow: 0 0 10px var(--theme-color);
+}
+
+/* 菜单标题样式增强 */
+.ant-menu-submenu-title {
+  font-size: 0.95rem !important;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.ant-menu-submenu-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 24px;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #00ccff, #7700ff);
+  transition: width 0.4s ease;
+}
+
+.ant-menu-submenu:hover .ant-menu-submenu-title::after {
+  width: calc(100% - 48px);
+}
+
+/* 子菜单项样式 */
+.ant-menu-item-only-child {
+  font-size: 0.85rem !important;
+  padding-left: 40px !important;
+  position: relative;
+}
+
+.ant-menu-item-only-child::before {
+  content: '•';
+  position: absolute;
+  left: 24px;
+  color: rgba(100, 180, 255, 0.7);
+  font-size: 12px;
+}
+
+/* 三级菜单 */
+.ant-menu-submenu > .ant-menu > .ant-menu-submenu > .ant-menu-submenu-title {
+  padding-left: px !important;
+}
+
+.ant-menu-submenu > .ant-menu > .ant-menu-submenu > .ant-menu > .ant-menu-item {
+  padding-left: 64px !important;
+}
+
+/* 添加主题色图标 */
+.ant-menu-submenu-title::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background: currentColor;
+  vertical-align: middle;
+}
+
+/* 为不同菜单项设置图标背景色 */
+.menu-html .ant-menu-submenu-title::before {
+  background: #ff8c00;
+}
+.menu-css .ant-menu-submenu-title::before {
+  background: #1e90ff;
+}
+.menu-javascript .ant-menu-submenu-title::before {
+  background: #ffd700;
+}
+.menu-react .ant-menu-submenu-title::before {
+  background: #00ced1;
+}
+.menu-vue .ant-menu-submenu-title::before {
+  background: #42b983;
+}
+.menu-build .ant-menu-submenu-title::before {
+  background: #9370db;
+}
+.menu-compiler .ant-menu-submenu-title::before {
+  background: #ff69b4;
+}
+.menu-git .ant-menu-submenu-title::before {
+  background: #a9a9a9;
+}
+.menu-ci .ant-menu-submenu-title::before {
+  background: #ff6b6b;
+}
+.menu-network .ant-menu-submenu-title::before {
+  background: #87ceeb;
+}
+.menu-engineering .ant-menu-submenu-title::before {
+  background: #00b894;
+}
+
+/* src/assets/styles/Menu.css */
+/* 在文件底部添加 */
+
+/* 移动端菜单按钮 */
+.mobile-menu-btn {
+  display: none; /* 默认隐藏 */
+}
+
+/* src/assets/styles/Menu.css */
+/* 确保菜单在小屏幕上保持可见 */
+/* 移动端菜单滚动修复 */
+@media (max-width: 768px) {
+  .menu-inner {
+    max-height: 60vh !important;
+    overflow-y: auto !important;
+  }
+  
+  /* 确保子菜单可以正常显示 */
+  .ant-menu-submenu > .ant-menu {
+    position: static !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* 多级菜单内边距调整 */
+  .ant-menu-submenu-placement-rightTop {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+  }
+  
+  /* 三级菜单样式 */
+  .ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
+    padding-left: 40px !important;
+  }
+  
+  .ant-menu-sub.ant-menu-inline > .ant-menu-item {
+    padding-left: 56px !important;
+  }
+}
+/* src/assets/styles/Menu.css */
+/* 新增滚动容器 */
+.menu-scroll-container {
+  height: 100%;
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .menu-scroll-container {
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+}
+
+/* 追加到 Menu.css 末尾 */
+@media (max-width: 768px) {
+  /* 遮罩层宽度 100% 而不是 75vw，防止右侧留白 */
+  .mobile-drawer {
+    width: 100vw !important;
+    padding:0;
+    height: 100vh;
+    overflow-y: auto ;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Drawer 内容区高度 100% + 去掉 antd 自带 padding */
+  .mobile-drawer .ant-drawer-content-wrapper {
+    height: 100vh;
+  }
+
+  .mobile-drawer .ant-drawer-body {
+    padding: 0;
+    height: 100vh;            /* 撑满整屏 */
+    overflow-y: auto;         /* 允许滚动 */
+  }
+}
+/* 手机端全屏 Drawer 彻底撑满 */
+@media (max-width: 768px) {
+  /* 把 antd 自带的壳子撑到 100vh */
+  .mobile-drawer .ant-drawer-content-wrapper {
+    width: 100vw !important;
+    height: 100vh !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+
+  /* 内容区占满整屏，隐藏系统滚动条 */
+  .mobile-drawer .ant-drawer-body {
+    height: 100vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* 防止 iOS Safari 地址栏浮动导致高度抖动 */
+  body.mobile-menu-open {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+  }
+}
+/* 手机端 Drawer 强制 100 % 满屏（覆盖之前所有零碎规则） */
+@media (max-width: 768px) {
+  /* 1. 让 antd Drawer 外壳占满可视窗口 */
+  .mobile-drawer.ant-drawer .ant-drawer-mask,
+  .mobile-drawer.ant-drawer .ant-drawer-content-wrapper {
+    width: 100vw !important;
+    height: 100vh !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 2. 内容区同样 100 % 高，允许滚动 */
+  .mobile-drawer .ant-drawer-body {
+    padding: 0 !important;
+    height: 100vh !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* 让 antd Drawer 外壳占满可视窗口 */
+  .mobile-drawer.ant-drawer .ant-drawer-mask,
+  .mobile-drawer.ant-drawer .ant-drawer-content-wrapper {
+    width: 100vw !important;
+    height: 100vh !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 内容区 100% 高，可滚动 */
+  .mobile-drawer .ant-drawer-body {
+    padding: 0 !important;
+    height: 100vh !important;
+    overflow-y: auto !important;
+  }
+}
+
+/* 让 container 的间隙透出对应主题色 */
+body.dark-mode {
+  background: #0f1a2a;
+}
+body.eye-protection-mode {
+  background: #e8f5e9;
+}
+/* src/assets/styles/Menu.css 末尾追加 */
+.menu-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.menu-content {
+  flex: 1;
+  padding:10px;
+  width:(100%-200px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  padding-right: 0px;
+  max-height: calc(100vh - 60px);
+  box-sizing: border-box;
+  padding-right:30px;
+  margin-top: 0px;
+  margin-left: -px;
+}

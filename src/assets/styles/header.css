@@ -1,0 +1,340 @@
+/* src/assets/styles/header.css */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px; /* 增加高度创造空间感 */
+  z-index: 1000; /* 更高层级 */
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  
+  /* 高级科技感基底 */
+  background: rgba(12, 15, 25, 0.95); /* 深空底色 */
+  border-bottom: 1px solid rgba(100, 120, 255, 0.15); /* 微妙的光边 */
+  box-shadow: 0 0 30px rgba(80, 100, 255, 0.1); /* 科技蓝光晕 */
+  
+  /* 未来感装饰 */
+  background-image: 
+    linear-gradient(90deg, transparent 95%, rgba(0, 195, 255, 0.1) 100%),
+    linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-size: 100% 100%, 20px 20px; /* 网格纹理 */
+}
+
+/* ---------- 赛博暗色模式 ---------- */
+body.dark-mode .header {
+  background: 
+    linear-gradient(90deg, 
+      rgba(10, 12, 30, 0.98) 0%, 
+      rgba(15, 8, 40, 0.98) 100%), /* 深紫蓝渐变 */
+    linear-gradient(rgba(0, 0, 0, 0.15) 1px, transparent 1px);
+  background-size: 100% 100%, 20px 20px;
+  border-bottom: 1px solid rgba(100, 80, 255, 0.3);
+  box-shadow: 
+    0 0 40px rgba(100, 80, 255, 0.3), /* 紫色光晕 */
+    0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- 未来护眼模式 ---------- */
+body.eye-protection-mode .header {
+  background: 
+    linear-gradient(90deg, 
+      rgba(8, 30, 15, 0.98) 0%, 
+      rgba(5, 25, 15, 0.98) 100%), /* 深绿渐变 */
+    linear-gradient(rgba(0, 0, 0, 0.15) 1px, transparent 1px);
+  background-size: 100% 100%, 20px 20px;
+  border-bottom: 1px solid rgba(0, 230, 150, 0.4);
+  box-shadow: 
+    0 0 40px rgba(0, 200, 120, 0.3), /* 绿色光晕 */
+    0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- 文字与链接 ---------- */
+.logo {
+  font-family: 'Orbitron', sans-serif; /* 科技感字体 */
+  font-weight: 500;
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+  color: rgba(220, 230, 255, 1);
+  text-shadow: 0 0 10px rgba(100, 150, 255, 0.7);
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.logo::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00ccff, transparent);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.logo:hover {
+  text-shadow: 0 0 15px rgba(100, 180, 255, 1);
+}
+
+.logo:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-link {
+  position: relative;
+  font-weight: 400;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: rgba(200, 220, 255, 0.9);
+  padding: 8px 0;
+  margin: 0 20px;
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  text-transform: uppercase; /* 大写字母更科技 */
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #00ccff, #7700ff);
+  transition: width 0.4s ease;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(100, 200, 255, 0.8);
+}
+
+.nav-link:hover::before {
+  width: 100%;
+}
+
+/* 书法字体保留但增强科技感 */
+.nav-link.dragon-font {
+  font-family: 'DragonFont', 'Orbitron', sans-serif;
+  position: relative;
+}
+
+.nav-link.dragon-font::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  width: 8px;
+  height: 8px;
+  background: rgba(0, 200, 255, 0.7);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nav-link.dragon-font:hover::after {
+  opacity: 1;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 200, 255, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(0, 200, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 200, 255, 0); }
+}
+
+/* ---------- 布局优化 ---------- */
+.nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left-content {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  margin-right: 60px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+}
+
+.right-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ---------- 高科技按钮 ---------- */
+.mode-toggle-btn {
+  position: relative;
+  background: transparent;
+  border: 1px solid rgba(100, 180, 255, 0.4);
+  border-radius: 0;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(80, 150, 255, 0.2);
+}
+
+.mode-toggle-btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, 
+    transparent, 
+    rgba(100, 200, 255, 0.1), 
+    transparent);
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+}
+
+.mode-toggle-btn:hover {
+  border-color: rgba(100, 220, 255, 0.8);
+  box-shadow: 0 0 20px rgba(80, 180, 255, 0.6);
+}
+
+.mode-toggle-btn:hover::before {
+  transform: rotate(45deg) translate(25%, 25%);
+}
+
+.mode-toggle-btn.active {
+  background: rgba(100, 180, 255, 0.15);
+  border-color: rgba(100, 220, 255, 1);
+  box-shadow: 
+    0 0 25px rgba(80, 180, 255, 0.8),
+    inset 0 0 15px rgba(100, 220, 255, 0.4);
+}
+
+.icon {
+  font-size: 20px;
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s ease;
+}
+
+.mode-toggle-btn:hover .icon {
+  transform: scale(1.2);
+  text-shadow: 0 0 10px rgba(100, 220, 255, 0.8);
+}
+
+/* 暗色模式按钮激活效果 */
+body.dark-mode .mode-toggle-btn.active {
+  border-color: rgba(180, 100, 255, 1);
+  box-shadow: 
+    0 0 25px rgba(180, 100, 255, 0.8),
+    inset 0 0 15px rgba(200, 120, 255, 0.4);
+}
+
+/* 护眼模式按钮激活效果 */
+body.eye-protection-mode .mode-toggle-btn.active {
+  border-color: rgba(0, 230, 150, 1);
+  box-shadow: 
+    0 0 25px rgba(0, 200, 120, 0.8),
+    inset 0 0 15px rgba(0, 230, 180, 0.4);
+}
+
+/* src/assets/styles/header.css */
+/* 原有样式保持不变... */
+
+/* 新增的响应式样式 */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: rgba(12, 15, 25, 0.98);
+    flex-direction: column;
+    gap: 0;
+    padding: 20px 0;
+    z-index: 1000;
+    border-top: 1px solid rgba(100, 120, 255, 0.15);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .nav-links.mobile-open {
+    display: flex;
+  }
+  
+  .nav-link {
+    margin: 10px 20px;
+    text-align: center;
+  }
+  
+  .mobile-menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 20px;
+    z-index: 1001;
+  }
+  
+  .bar {
+    width: 100%;
+    height: 3px;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-menu-toggle:hover .bar {
+    background: #00ccff;
+  }
+  
+  .logo {
+    margin-right: 20px;
+  }
+  
+  .right-content {
+    margin-right: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.3rem;
+  }
+  
+  .header {
+    padding: 0 15px;
+  }
+}
+.header-menu-toggle {
+  display: none;
+}
+@media (max-width: 768px) {
+  .header-menu-toggle {
+    display: block;
+    margin-left: auto;
+    color: #fff;
+    font-size: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+}
