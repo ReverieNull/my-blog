@@ -22,7 +22,7 @@ export const Header: React.FC = () => {
     <header className="header">
       <nav className="nav">
         <div className="left-content">
-          <NavLink to="/Welcome" className="logo">净秋前端指南</NavLink>
+          <NavLink to="/" className="logo">净秋前端指南</NavLink>
 
           {/* 按钮 1：控制 Header 自己的链接 */}
           <button
@@ -35,9 +35,9 @@ export const Header: React.FC = () => {
 
           {/* Header 内导航链接 */}
           <div className={`nav-links ${headerMenuOpen ? 'mobile-open' : ''}`}>
-            <NavLink to="/frontend" className="nav-link dragon-font">前端</NavLink>
-            <NavLink to="/harmonyos" className="nav-link dragon-font">鸿蒙</NavLink>
-            <NavLink to="/llm" className="nav-link dragon-font">大模型</NavLink>
+            <NavLink to="/app/frontend" className="nav-link dragon-font">前端</NavLink>
+            <NavLink to="/app/harmonyos" className="nav-link dragon-font">鸿蒙</NavLink>
+            <NavLink to="/app/llm" className="nav-link dragon-font">大模型</NavLink>
           </div>
         </div>
 
