@@ -649,3 +649,72 @@ body.eye-protection-mode {
   margin-top: 0px;
   margin-left: -px;
 }
+@media (max-width: 768px) {
+  /* 1. 左侧菜单整块隐藏 */
+  .menu-wrapper {
+    display: none !important;
+  }
+
+  /* 2. 主内容占满 */
+  .menu-content {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  /* 3. 汉堡按钮（右下角浮动） */
+  .hamburger-btn {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 999;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(0,200,255,.9);
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,.3);
+    transition: transform .2s;
+  }
+  .hamburger-btn:active {
+    transform: scale(.92);
+  }
+
+  /* 4. 抽屉保持之前 100vw/100vh 规则 */
+  .mobile-drawer.ant-drawer .ant-drawer-content-wrapper,
+  .mobile-drawer.ant-drawer .ant-drawer-mask {
+    width: 100vw !important;
+    height: 100vh !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .mobile-drawer .ant-drawer-body {
+    padding: 0 !important;
+    height: 100vh !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+}
+
+/* 抽屉壳子强制置顶 */
+.mobile-drawer {
+  z-index: 9999 !important;
+}
+.mobile-drawer .ant-drawer-content-wrapper {
+  z-index: 10000 !important;
+}
+/* 手机端抽屉菜单占满整屏 */
+@media (max-width: 768px) {
+  .mobile-drawer .menu-inner {
+    width: 100vw !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    border-radius: 0;
+    border-right: none;
+  }
+}

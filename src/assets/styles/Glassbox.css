@@ -2,7 +2,7 @@
 .glass-box {
   /* 占满可用宽度，左右各留 30 px 空隙 */
   width: 100%;
-  max-width: 1300px;
+  max-width: 2400px;
   overflow: auto;
   margin-bottom: 20px;
   scrollbar-width: none;

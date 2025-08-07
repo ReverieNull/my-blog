@@ -35,9 +35,25 @@ export const Header: React.FC = () => {
 
           {/* Header 内导航链接 */}
           <div className={`nav-links ${headerMenuOpen ? 'mobile-open' : ''}`}>
-            <NavLink to="/app/frontend" className="nav-link dragon-font">前端</NavLink>
-            <NavLink to="/app/harmonyos" className="nav-link dragon-font">鸿蒙</NavLink>
-            <NavLink to="/app/llm" className="nav-link dragon-font">大模型</NavLink>
+    
+            <NavLink 
+            to="/app/frontend" 
+            className="nav-link dragon-font"
+            onClick={() => setHeaderMenuOpen(false)}
+            >前端
+            </NavLink>
+            <NavLink 
+            to="/app/harmonyos" 
+            className="nav-link dragon-font"
+            onClick={() => setHeaderMenuOpen(false)}
+            >鸿蒙
+            </NavLink>
+            <NavLink 
+            to="/app/llm"
+            className="nav-link dragon-font"
+            onClick={() => setHeaderMenuOpen(false)}
+            >大模型
+            </NavLink>
           </div>
         </div>
 
