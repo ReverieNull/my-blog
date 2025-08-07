@@ -459,7 +459,7 @@ const router = createBrowserRouter([
         ] 
       },
       {
-        path: 'LLM',
+        path: 'llm',
         element: <LLMMenu />,
         children:[
           {index: true, element: <Home />}
