@@ -30,9 +30,7 @@
   bottom: 0;
   overflow-y: auto;
   z-index: 90;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(100, 150, 255, 0.5) transparent;
-}
+  -ms-overflow-style: none;
 
 .content {
   flex: 1; /* 与 menu 宽度一致 */
@@ -276,7 +274,6 @@ body.eye-protection-mode .content::after {
   .menu-scroll-container {
     height: 100%;
     overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
   }
 
 /* Layout.css 末尾追加 */
@@ -374,7 +371,6 @@ body.eye-protection-mode .mobile-drawer .ant-drawer-body {
     padding: 0 !important;
     height: 100vh !important;
     overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch !important;
   }
 
   /* 3. 隐藏系统滚动条，避免右侧空白 */
@@ -408,3 +404,4 @@ body.eye-protection-mode .mobile-drawer .ant-drawer-body {
   }
 }
 
+};

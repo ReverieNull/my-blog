@@ -5,13 +5,13 @@
   max-width: 2400px;
   overflow: auto;
   margin-bottom: 20px;
-  scrollbar-width: none;
   width: calc(100% - 60px);
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 50px;
   padding: 32px;
   border-radius: 16px;
+  
 
   /* 纯净半透明背景（随主题自动切换） */
   background: rgba(255, 255, 255, 0.45);
