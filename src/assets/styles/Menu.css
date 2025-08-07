@@ -9,7 +9,6 @@ html, body {
 
 .menu-wrapper {
   width: 200px;
-  heigtht: (100vh - 60px);
   position: fixed;
   flex-shrink: 0;
   top: 70px;

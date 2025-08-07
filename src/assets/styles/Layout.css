@@ -307,6 +307,7 @@ body.eye-protection-mode .content::after {
 }
 .mobile-drawer .ant-drawer-body {
   background: rgba(12, 15, 25, 0.95);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   padding: 0;
   overflow-y: auto;
