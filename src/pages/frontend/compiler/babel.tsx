@@ -8,38 +8,6 @@ import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
 import 'prismjs/components/prism-markup';
 
-const htmlSkeleton = `<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <title>HTML 示例</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header>
-    <h1>站点标题</h1>
-    <nav>
-      <a href="/">首页</a>
-      <a href="/about">关于</a>
-    </nav>
-  </header>
-
-  <main>
-    <section>
-      <h2>最新文章</h2>
-      <article>
-        <h3>文章标题</h3>
-        <p>正文内容……</p>
-      </article>
-    </section>
-  </main>
-
-  <footer>
-    <small>&copy; 2024 My Blog</small>
-  </footer>
-</body>
-</html>`;
 
 export default function Babel() {
   React.useEffect(() => {
@@ -48,86 +16,26 @@ export default function Babel() {
 
   return (
     <GlassBox>
-      <h1>HTML 基础速查表</h1>
-
-      <h2>1. 文本标签</h2>
-      <p>
-        <strong>strong</strong>、<em>em</em>、<u>u</u>、<del>del</del>、
-        <mark>mark</mark>、<code>code</code>、<small>small</small>
-      </p>
-
-      <h2>2. 列表</h2>
-      <ul>
-        <li>无序列表 1</li>
-        <li>无序列表 2</li>
-      </ul>
-      <ol>
-        <li>有序列表 1</li>
-        <li>有序列表 2</li>
-      </ol>
-
-      <h2>3. 表格</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>标签</th>
-            <th>作用</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>&lt;table&gt;</td>
-            <td>表格容器</td>
-          </tr>
-          <tr>
-            <td>&lt;thead&gt;</td>
-            <td>表头</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h2>4. 媒体</h2>
-
-
-      <h2>5. 表单</h2>
-      <form>
-        <label>
-          姓名：
-          <input type="text" placeholder="请输入姓名" required />
-        </label>
-        <br />
-        <label>
-          邮箱：
-          <input type="email" placeholder="name@example.com" required />
-        </label>
-        <br />
-        <label>
-          年龄：
-          <input type="number" min="0" max="120" />
-        </label>
-        <br />
-        <label>
-          爱好（多选）：
-          <select multiple>
-            <option>阅读</option>
-            <option>音乐</option>
-            <option>运动</option>
-          </select>
-        </label>
-        <br />
-        <button type="submit">提交</button>
-      </form>
-
-      <h2>6. 折叠面板</h2>
-      <details>
-        <summary>点我展开详情</summary>
-        <p>这里是隐藏的内容，支持任意 HTML。</p>
-      </details>
-
-      <h2>7. 完整页面骨架示例</h2>
-      <pre>
-        <code className="language-markup">{htmlSkeleton}</code>
-      </pre>
+      <h1>Babel 基础速查表</h1>
+     <div>
+<table>
+<thead>
+<tr><th>概念</th><th>一句话讲解</th><th>配置示例</th><th>常见坑 & 提示</th></tr>
+</thead>
+<tbody>
+<tr><td>预设</td><td>一组 Babel 插件的集合</td><td><code>.babelrc: &#123; "presets": ["@babel/preset-env"] &#125;</code></td><td>根据项目需求选择预设</td></tr>
+<tr><td>插件</td><td>单个功能的代码转换</td><td><code>.babelrc: &#123; "plugins": ["@babel/plugin-transform-arrow-functions"] &#125;</code></td><td>插件可以单独使用</td></tr>
+<tr><td>目标浏览器</td><td>指定需要兼容的浏览器</td><td><code>browserslist: [&#39;&gt; 1%&#39;, &#39;last 2 versions&#39;]</code></td><td>在 <code>package.json</code> 中配置</td></tr>
+<tr><td>Polyfill</td><td>运行时填充缺失的功能</td><td><code>import &#39;core-js/stable&#39;</code></td><td>按需引入避免体积过大</td></tr>
+<tr><td>配置文件</td><td>Babel 配置文件</td><td><code>.babelrc</code> 或 <code>babel.config.js</code></td><td>项目根目录放置</td></tr>
+<tr><td>JSX 支持</td><td>转换 JSX 语法</td><td><code>preset-react: &#123; "pragma": "React.createElement" &#125;</code></td><td>确保安装相关预设</td></tr>
+<tr><td>压缩</td><td>压缩 Babel 输出的代码</td><td>使用 <code>terser-webpack-plugin</code></td><td>配合 Webpack 使用</td></tr>
+<tr><td>Source Map</td><td>生成源代码映射</td><td><code>sourceMaps: true</code> in .babelrc</td><td>便于调试</td></tr>
+<tr><td>Tree Shaking</td><td>消除无用代码</td><td>配合 Webpack 或 Rollup</td><td>确保静态导入</td></tr>
+<tr><td>缓存</td><td>缓存转换结果提高构建速度</td><td><code>cacheDirectory: true</code> in .babelrc</td><td>大项目效果明显</td></tr>
+</tbody>
+</table>
+</div>
     </GlassBox>
   );
 }

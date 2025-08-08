@@ -8,38 +8,7 @@ import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
 import 'prismjs/components/prism-markup';
 
-const htmlSkeleton = `<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <title>HTML 示例</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header>
-    <h1>站点标题</h1>
-    <nav>
-      <a href="/">首页</a>
-      <a href="/about">关于</a>
-    </nav>
-  </header>
 
-  <main>
-    <section>
-      <h2>最新文章</h2>
-      <article>
-        <h3>文章标题</h3>
-        <p>正文内容……</p>
-      </article>
-    </section>
-  </main>
-
-  <footer>
-    <small>&copy; 2024 My Blog</small>
-  </footer>
-</body>
-</html>`;
 
 export default function ReactAdvanced() {
   React.useEffect(() => {
@@ -48,11 +17,25 @@ export default function ReactAdvanced() {
 
   return (
     <GlassBox>
-      <h1>HTML 基础速查表</h1>
-
-      <pre>
-        <code className="language-markup">{htmlSkeleton}</code>
-      </pre>
+     <div>
+<table>
+<thead>
+<tr><th>概念</th><th>讲解</th><th>代码示例</th><th>常见坑 & 提示</th></tr>
+</thead>
+<tbody>
+<tr><td>useReducer</td><td>复杂状态逻辑</td><td><code>const [state,dispatch] = useReducer(reducer,init)</code></td><td>比 useState 更易测试</td></tr>
+<tr><td>useCallback</td><td>缓存函数引用</td><td><code>const fn = useCallback(() =&gt; {}, [deps])</code></td><td>依赖数组别漏写</td></tr>
+<tr><td>useMemo</td><td>缓存计算结果</td><td><code>const val = useMemo(() =&gt; heavy(), [deps])</code></td><td>计算必须纯函数</td></tr>
+<tr><td>useRef</td><td>保存可变引用</td><td><code>const ref = useRef(null)</code></td><td>.current 可读写，不会触发重渲染</td></tr>
+<tr><td>useLayoutEffect</td><td>同步 DOM 后执行</td><td><code>useLayoutEffect(() =&gt; {}, [])</code></td><td>会阻塞绘制，慎用</td></tr>
+<tr><td>React.memo</td><td>组件级缓存</td><td><code>export default memo(Child)</code></td><td>props 浅比较，复杂对象需自定义</td></tr>
+<tr><td>lazy 加载</td><td>代码分割</td><td><code>const Page = lazy(() =&gt import('./Page'))</code></td><td>需包裹 Suspense</td></tr>
+<tr><td>ErrorBoundary</td><td>捕获子树错误</td><td><code>class EB extends Component &#123; componentDidCatch(){} &#125;</code></td><td>仅捕获渲染阶段错误</td></tr>
+<tr><td>Portal</td><td>渲染到任意 DOM</td><td><code>createPortal(children, domNode)</code></td><td>事件冒泡仍在 React 树</td></tr>
+<tr><td>forwardRef</td><td>父拿子 ref</td><td><code>const Child = forwardRef((props, ref) =&gt; ...)</code></td><td>子组件必须配合 ref</td></tr>
+</tbody>
+</table>
+</div>
     </GlassBox>
   );
 }

@@ -8,38 +8,6 @@ import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
 import 'prismjs/components/prism-markup';
 
-const htmlSkeleton = `<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <title>HTML 示例</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header>
-    <h1>站点标题</h1>
-    <nav>
-      <a href="/">首页</a>
-      <a href="/about">关于</a>
-    </nav>
-  </header>
-
-  <main>
-    <section>
-      <h2>最新文章</h2>
-      <article>
-        <h3>文章标题</h3>
-        <p>正文内容……</p>
-      </article>
-    </section>
-  </main>
-
-  <footer>
-    <small>&copy; 2024 My Blog</small>
-  </footer>
-</body>
-</html>`;
 
 export default function CSSAdvanced() {
   React.useEffect(() => {
@@ -48,86 +16,26 @@ export default function CSSAdvanced() {
 
   return (
     <GlassBox>
-      <h1>HTML 基础速查表</h1>
-
-      <h2>1. 文本标签</h2>
-      <p>
-        <strong>strong</strong>、<em>em</em>、<u>u</u>、<del>del</del>、
-        <mark>mark</mark>、<code>code</code>、<small>small</small>
-      </p>
-
-      <h2>2. 列表</h2>
-      <ul>
-        <li>无序列表 1</li>
-        <li>无序列表 2</li>
-      </ul>
-      <ol>
-        <li>有序列表 1</li>
-        <li>有序列表 2</li>
-      </ol>
-
-      <h2>3. 表格</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>标签</th>
-            <th>作用</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>&lt;table&gt;</td>
-            <td>表格容器</td>
-          </tr>
-          <tr>
-            <td>&lt;thead&gt;</td>
-            <td>表头</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h2>4. 媒体</h2>
-
-
-      <h2>5. 表单</h2>
-      <form>
-        <label>
-          姓名：
-          <input type="text" placeholder="请输入姓名" required />
-        </label>
-        <br />
-        <label>
-          邮箱：
-          <input type="email" placeholder="name@example.com" required />
-        </label>
-        <br />
-        <label>
-          年龄：
-          <input type="number" min="0" max="120" />
-        </label>
-        <br />
-        <label>
-          爱好（多选）：
-          <select multiple>
-            <option>阅读</option>
-            <option>音乐</option>
-            <option>运动</option>
-          </select>
-        </label>
-        <br />
-        <button type="submit">提交</button>
-      </form>
-
-      <h2>6. 折叠面板</h2>
-      <details>
-        <summary>点我展开详情</summary>
-        <p>这里是隐藏的内容，支持任意 HTML。</p>
-      </details>
-
-      <h2>7. 完整页面骨架示例</h2>
-      <pre>
-        <code className="language-markup">{htmlSkeleton}</code>
-      </pre>
+      <h1>CSS进阶属性一览表</h1>
+     <div>
+<table>
+<thead>
+<tr><th>属性/概念</th><th>一句话讲解</th><th>代码示例</th><th>常见坑 & 提示</th></tr>
+</thead>
+<tbody>
+<tr><td>clamp()</td><td>流体值</td><td>font-size:clamp(1rem,2vw,2rem)</td><td>老浏览器需 polyfill</td></tr>
+<tr><td>CSS Modules</td><td>构建时哈希类名</td><td>import styles from './index.module.css'</td><td>不能动态拼接类名</td></tr>
+<tr><td>CSS-in-JS</td><td>样式与组件同文件</td><td>const Button = styled.button\`color:red;\`</td><td>SSR 需 critical-css</td></tr>
+<tr><td>Container Query</td><td>父容器宽度响应式</td><td>@container(min-width:400px)&#123;...&#125;</td><td>需 container-type:inline-size</td></tr>
+<tr><td>prefers-color-scheme</td><td>系统深色模式</td><td>@media(prefers-color-scheme:dark)&#123;...&#125;</td><td>需同时提供切换按钮</td></tr>
+<tr><td>backdrop-filter</td><td>毛玻璃背景</td><td>backdrop-filter:blur(4px)</td><td>需半透明背景</td></tr>
+<tr><td>will-change</td><td>提前 GPU 合成层</td><td>will-change:transform</td><td>滥用 → 占显存</td></tr>
+<tr><td>mix-blend-mode</td><td>混合模式</td><td>mix-blend-mode:multiply</td><td>父级需不透明背景</td></tr>
+<tr><td>aspect-ratio</td><td>固定比例</td><td>aspect-ratio:16/9</td><td>IE 无支持，padding-top hack</td></tr>
+<tr><td>scroll-behavior</td><td>平滑滚动</td><td>html(scroll-behavior:smooth)</td><td>Safari小于15 需 polyfill</td></tr>
+</tbody>
+</table>
+</div>
     </GlassBox>
   );
 }

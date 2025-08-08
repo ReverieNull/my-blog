@@ -7,38 +7,7 @@ import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
 import 'prismjs/components/prism-markup';
 
-const htmlSkeleton = `<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <title>HTML 示例</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header>
-    <h1>站点标题</h1>
-    <nav>
-      <a href="/">首页</a>
-      <a href="/about">关于</a>
-    </nav>
-  </header>
 
-  <main>
-    <section>
-      <h2>最新文章</h2>
-      <article>
-        <h3>文章标题</h3>
-        <p>正文内容……</p>
-      </article>
-    </section>
-  </main>
-
-  <footer>
-    <small>&copy; 2024 My Blog</small>
-  </footer>
-</body>
-</html>`;
 
 export default function ViteBase() {
   React.useEffect(() => {
@@ -47,86 +16,21 @@ export default function ViteBase() {
 
   return (
     <GlassBox>
-      <h1>HTML 基础速查表</h1>
-
-      <h2>1. 文本标签</h2>
-      <p>
-        <strong>strong</strong>、<em>em</em>、<u>u</u>、<del>del</del>、
-        <mark>mark</mark>、<code>code</code>、<small>small</small>
-      </p>
-
-      <h2>2. 列表</h2>
-      <ul>
-        <li>无序列表 1</li>
-        <li>无序列表 2</li>
-      </ul>
-      <ol>
-        <li>有序列表 1</li>
-        <li>有序列表 2</li>
-      </ol>
-
-      <h2>3. 表格</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>标签</th>
-            <th>作用</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>&lt;table&gt;</td>
-            <td>表格容器</td>
-          </tr>
-          <tr>
-            <td>&lt;thead&gt;</td>
-            <td>表头</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h2>4. 媒体</h2>
-
-
-      <h2>5. 表单</h2>
-      <form>
-        <label>
-          姓名：
-          <input type="text" placeholder="请输入姓名" required />
-        </label>
-        <br />
-        <label>
-          邮箱：
-          <input type="email" placeholder="name@example.com" required />
-        </label>
-        <br />
-        <label>
-          年龄：
-          <input type="number" min="0" max="120" />
-        </label>
-        <br />
-        <label>
-          爱好（多选）：
-          <select multiple>
-            <option>阅读</option>
-            <option>音乐</option>
-            <option>运动</option>
-          </select>
-        </label>
-        <br />
-        <button type="submit">提交</button>
-      </form>
-
-      <h2>6. 折叠面板</h2>
-      <details>
-        <summary>点我展开详情</summary>
-        <p>这里是隐藏的内容，支持任意 HTML。</p>
-      </details>
-
-      <h2>7. 完整页面骨架示例</h2>
-      <pre>
-        <code className="language-markup">{htmlSkeleton}</code>
-      </pre>
+    <div>
+<table>
+<thead>
+<tr><th>概念</th><th>一句话讲解</th><th>代码示例</th><th>常见坑 & 提示</th></tr>
+</thead>
+<tbody>
+<tr><td>热更新</td><td>开发时热更新无需刷新页面</td><td>无需额外配置，Vite 内置支持</td><td>确保使用最新版本</td></tr>
+<tr><td>配置文件</td><td>配置项目的构建选项</td><td><code>import &#123; defineConfig &#125; from &#39;vite&#39;</code></td><td>使用 TypeScript 配置更佳</td></tr>
+<tr><td>插件</td><td>扩展 Vite 的功能</td><td><code>plugins: [vue()]</code></td><td>插件顺序可能影响构建</td></tr>
+<tr><td>构建</td><td>构建项目生成生产环境代码</td><td><code>vite build</code></td><td>配置 outputDir 指定输出目录</td></tr>
+<tr><td>开发服务器</td><td>启动开发服务器</td><td><code>vite dev</code></td><td>配置 server 选项自定义端口</td></tr>
+<tr><td>静态资产</td><td>处理静态资源</td><td><code>assetsInclude: [&#39;**/*&#39;]</code></td><td>配置 assetsDir 指定目录</td></tr>
+</tbody>
+</table>
+</div>
     </GlassBox>
   );
 }

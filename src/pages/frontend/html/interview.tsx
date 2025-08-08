@@ -8,38 +8,6 @@ import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
 import 'prismjs/components/prism-markup';
 
-const htmlSkeleton = `<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <title>HTML 示例</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header>
-    <h1>站点标题</h1>
-    <nav>
-      <a href="/">首页</a>
-      <a href="/about">关于</a>
-    </nav>
-  </header>
-
-  <main>
-    <section>
-      <h2>最新文章</h2>
-      <article>
-        <h3>文章标题</h3>
-        <p>正文内容……</p>
-      </article>
-    </section>
-  </main>
-
-  <footer>
-    <small>&copy; 2024 My Blog</small>
-  </footer>
-</body>
-</html>`;
 
 export default function HTMLInterview() {
   React.useEffect(() => {
@@ -48,14 +16,26 @@ export default function HTMLInterview() {
 
   return (
     <GlassBox>
-      <h1>HTML 基础速查表</h1>
-
-    
-
-      <h2>7. 完整页面骨架示例</h2>
-      <pre>
-        <code className="language-markup">{htmlSkeleton}</code>
-      </pre>
+      <h1>HTML常见面试题</h1>
+    <div>
+<table>
+<thead>
+<tr><th>面试题</th><th>一句话答案</th><th>追问点</th></tr>
+</thead>
+<tbody>
+<tr><td>doctype 不写会怎样？</td><td>触发怪异盒模型，IE 宽度含 border</td><td>怪异盒模型计算方式？</td></tr>
+<tr><td>srcset 如何配套 sizes？</td><td>srcset="a.jpg 320w" sizes="(max-width:600px) 320px"</td><td>w 描述符 vs x 描述符区别？</td></tr>
+<tr><td>rel="noopener" 作用？</td><td>阻止 window.opener 钓鱼</td><td>还要不要 noreferrer？</td></tr>
+<tr><td>语义化标签 SEO 好处？</td><td>爬虫理解结构，提升可访问性</td><td>section vs article 区别？</td></tr>
+<tr><td>localStorage vs sessionStorage</td><td>前者永久，后者标签生命周期；5 MB</td><td>如何监听 storage 事件？</td></tr>
+<tr><td>input type="email" 校验规则？</td><td>宽松正则，需额外 pattern 严格验证</td><td>手机键盘差异？</td></tr>
+<tr><td>canvas 高清屏模糊原因？</td><td>物理像素≠CSS像素，需 devicePixelRatio 缩放</td><td>如何同步坐标？</td></tr>
+<tr><td>Shadow DOM 样式隔离原理？</td><td>内部样式不泄露，slot 透传</td><td>mode:closed 的调试限制？</td></tr>
+<tr><td>圣杯布局现代写法？</td><td>Grid: grid-template-columns:200px 1fr 200px</td><td>旧版 Flex 负 margin 已淘汰</td></tr>
+<tr><td>1px 边框高分屏实现？</td><td>transform:scaleY(.5) 或 媒体查询 min-device-pixel-ratio</td><td>iOS 地址栏浮动抖动？</td></tr>
+</tbody>
+</table>
+</div>
     </GlassBox>
   );
 }

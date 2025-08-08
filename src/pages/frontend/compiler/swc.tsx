@@ -8,38 +8,7 @@ import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
 import 'prismjs/components/prism-markup';
 
-const htmlSkeleton = `<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <title>HTML 示例</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header>
-    <h1>站点标题</h1>
-    <nav>
-      <a href="/">首页</a>
-      <a href="/about">关于</a>
-    </nav>
-  </header>
 
-  <main>
-    <section>
-      <h2>最新文章</h2>
-      <article>
-        <h3>文章标题</h3>
-        <p>正文内容……</p>
-      </article>
-    </section>
-  </main>
-
-  <footer>
-    <small>&copy; 2024 My Blog</small>
-  </footer>
-</body>
-</html>`;
 
 export default function SWC() {
   React.useEffect(() => {
@@ -48,86 +17,26 @@ export default function SWC() {
 
   return (
     <GlassBox>
-      <h1>HTML 基础速查表</h1>
-
-      <h2>1. 文本标签</h2>
-      <p>
-        <strong>strong</strong>、<em>em</em>、<u>u</u>、<del>del</del>、
-        <mark>mark</mark>、<code>code</code>、<small>small</small>
-      </p>
-
-      <h2>2. 列表</h2>
-      <ul>
-        <li>无序列表 1</li>
-        <li>无序列表 2</li>
-      </ul>
-      <ol>
-        <li>有序列表 1</li>
-        <li>有序列表 2</li>
-      </ol>
-
-      <h2>3. 表格</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>标签</th>
-            <th>作用</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>&lt;table&gt;</td>
-            <td>表格容器</td>
-          </tr>
-          <tr>
-            <td>&lt;thead&gt;</td>
-            <td>表头</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h2>4. 媒体</h2>
-
-
-      <h2>5. 表单</h2>
-      <form>
-        <label>
-          姓名：
-          <input type="text" placeholder="请输入姓名" required />
-        </label>
-        <br />
-        <label>
-          邮箱：
-          <input type="email" placeholder="name@example.com" required />
-        </label>
-        <br />
-        <label>
-          年龄：
-          <input type="number" min="0" max="120" />
-        </label>
-        <br />
-        <label>
-          爱好（多选）：
-          <select multiple>
-            <option>阅读</option>
-            <option>音乐</option>
-            <option>运动</option>
-          </select>
-        </label>
-        <br />
-        <button type="submit">提交</button>
-      </form>
-
-      <h2>6. 折叠面板</h2>
-      <details>
-        <summary>点我展开详情</summary>
-        <p>这里是隐藏的内容，支持任意 HTML。</p>
-      </details>
-
-      <h2>7. 完整页面骨架示例</h2>
-      <pre>
-        <code className="language-markup">{htmlSkeleton}</code>
-      </pre>
+       <h1>SWC 速查表</h1>
+   <div>
+<table>
+<thead>
+<tr><th>概念</th><th>一句话讲解</th><th>配置示例</th><th>常见坑 & 提示</th></tr>
+</thead>
+<tbody>
+<tr><td>性能</td><td>Rust 编写的高性能 JavaScript 编译器</td><td><code>swc-loader</code> in Webpack</td><td>启用缓存提高速度</td></tr>
+<tr><td>配置</td><td>SWC 的选项</td><td><code>.swcrc</code> 文件</td><td>支持 TypeScript 和 JSX</td></tr>
+<tr><td>插件</td><td>扩展 SWC 的功能</td><td>使用 <code>@swc/core</code> 和 <code>@swc/jest</code></td><td>插件生态系统较小</td></tr>
+<tr><td>预设</td><td>一组 SWC 插件的集合</td><td><code>&#123; "jsc": &#123; "target": "es2018" &#125; &#125;</code></td><td>配置项目目标环境</td></tr>
+<tr><td>JSX 支持</td><td>转换和优化 JSX 语法</td><td><code>&#123; "jsc": &#123; "parser": &#123; "syntax": "typescript" &#125; &#125;</code></td><td>配合 TypeScript 使用</td></tr>
+<tr><td>压缩</td><td>压缩 JavaScript 代码</td><td>使用 <code>swc-loader</code> 的 <code>minify</code> 选项</td><td>配合 Webpack 使用</td></tr>
+<tr><td>Source Map</td><td>生成源代码映射</td><td><code>sourceMaps: true</code> in .swcrc</td><td>便于调试</td></tr>
+<tr><td>缓存</td><td>缓存编译结果提高速度</td><td><code>cache: true</code> in swc-loader</td><td>大项目效果明显</td></tr>
+<tr><td>Tree Shaking</td><td>消除无用代码</td><td>配合 Webpack 或 Rollup</td><td>确保静态导入</td></tr>
+<tr><td>支持</td><td>支持的 JavaScript 版本和特性</td><td><code>&#123; "jsc": &#123; "target": "es2020" &#125; &#125;</code></td><td>根据项目需求配置</td></tr>
+</tbody>
+</table>
+</div>
     </GlassBox>
   );
 }

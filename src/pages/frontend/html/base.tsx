@@ -44,6 +44,7 @@ export default function HTMLBase() {
 
   return (
     <GlassBox>
+      <h1>HTML 基础速查表</h1>
             <input
         type="text"
         placeholder="搜索标签..."

@@ -8,38 +8,7 @@ import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
 import 'prismjs/components/prism-markup';
 
-const htmlSkeleton = `<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <title>HTML 示例</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header>
-    <h1>站点标题</h1>
-    <nav>
-      <a href="/">首页</a>
-      <a href="/about">关于</a>
-    </nav>
-  </header>
 
-  <main>
-    <section>
-      <h2>最新文章</h2>
-      <article>
-        <h3>文章标题</h3>
-        <p>正文内容……</p>
-      </article>
-    </section>
-  </main>
-
-  <footer>
-    <small>&copy; 2024 My Blog</small>
-  </footer>
-</body>
-</html>`;
 
 export default function CSSSelect() {
   React.useEffect(() => {
@@ -48,14 +17,71 @@ export default function CSSSelect() {
 
   return (
     <GlassBox>
-      <h1>HTML 基础速查表</h1>
-
-      <h2>1. 文本标签</h2>
-
-      <h2>7. 完整页面骨架示例</h2>
-      <pre>
-        <code className="language-markup">{htmlSkeleton}</code>
-      </pre>
+      <h1>CSS 选型决策</h1>
+      <div>
+<table>
+<thead>
+<tr>
+<th>决策维度</th>
+<th>原生 CSS</th>
+<th>Sass / Less</th>
+<th>Tailwind CSS</th>
+<th>Bootstrap 5</th>
+<th>Ant Design</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>学习曲线</td>
+<td>★</td>
+<td>★★</td>
+<td>★★☆</td>
+<td>★</td>
+<td>★★☆</td>
+</tr>
+<tr>
+<td>构建依赖</td>
+<td>无</td>
+<td>Node / Dart-Sass</td>
+<td>PostCSS</td>
+<td>无（CDN 可用）</td>
+<td>Webpack / Vite</td>
+</tr>
+<tr>
+<td>首屏体积</td>
+<td>最小</td>
+<td>中等</td>
+<td>按需最小</td>
+<td>≈ 150 KB</td>
+<td>≈ 500 KB</td>
+</tr>
+<tr>
+<td>定制深度</td>
+<td>100 %</td>
+<td>高</td>
+<td>极高</td>
+<td>中等</td>
+<td>高（主题变量）</td>
+</tr>
+<tr>
+<td>浏览器兼容</td>
+<td>全支持</td>
+<td>需编译</td>
+<td>IE11+</td>
+<td>IE11+</td>
+<td>IE11+</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>个人 / 极简</td>
+<td>设计系统 / 中台</td>
+<td>设计驱动</td>
+<td>快速原型</td>
+<td>企业后台</td>
+</tr>
+</tbody>
+</table>
+</div>
     </GlassBox>
   );
 }

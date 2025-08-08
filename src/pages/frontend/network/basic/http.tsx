@@ -8,38 +8,7 @@ import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
 import 'prismjs/components/prism-markup';
 
-const htmlSkeleton = `<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <title>HTML 示例</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header>
-    <h1>站点标题</h1>
-    <nav>
-      <a href="/">首页</a>
-      <a href="/about">关于</a>
-    </nav>
-  </header>
 
-  <main>
-    <section>
-      <h2>最新文章</h2>
-      <article>
-        <h3>文章标题</h3>
-        <p>正文内容……</p>
-      </article>
-    </section>
-  </main>
-
-  <footer>
-    <small>&copy; 2024 My Blog</small>
-  </footer>
-</body>
-</html>`;
 
 export default function NetworkHTTP() {
   React.useEffect(() => {
@@ -48,11 +17,25 @@ export default function NetworkHTTP() {
 
   return (
     <GlassBox>
-      <h1>HTML 基础速查表</h1>
-
-      <pre>
-        <code className="language-markup">{htmlSkeleton}</code>
-      </pre>
+<div>
+<table>
+<thead>
+<tr><th>概念</th><th>一句话讲解</th><th>示例</th><th>常见坑 & 提示</th></tr>
+</thead>
+<tbody>
+<tr><td>请求行</td><td>HTTP 请求的第一行</td><td><code>GET /path HTTP/1.1</code></td><td>方法、路径和协议版本</td></tr>
+<tr><td>状态码</td><td>服务器响应状态</td><td><code>200 OK</code>, <code>404 Not Found</code></td><td>处理常见状态码</td></tr>
+<tr><td>请求头</td><td>客户端发送的附加信息</td><td><code>Host: example.com</code></td><td>自定义头注意大小写</td></tr>
+<tr><td>响应头</td><td>服务器返回的附加信息</td><td><code>Content-Type: text/html</code></td><td>解析响应内容类型</td></tr>
+<tr><td>请求体</td><td>发送的数据</td><td><code>application/json</code> 数据</td><td>大数据注意性能</td></tr>
+<tr><td>响应体</td><td>服务器返回的数据</td><td>HTML、JSON、图片等</td><td>处理解析数据</td></tr>
+<tr><td>Cookie</td><td>存储在客户端的小数据</td><td><code>Set-Cookie: name=value</code></td><td>管理用户会话</td></tr>
+<tr><td>Session</td><td>服务器端存储的用户会话</td><td><code>session_id=12345</code></td><td>状态管理</td></tr>
+<tr><td>缓存控制</td><td>控制缓存机制</td><td><code>Cache-Control: max-age=3600</code></td><td>减少服务器负载</td></tr>
+<tr><td>ETag</td><td>资源的唯一标识符</td><td><code>ETag: "12345"</code></td><td>资源验证</td></tr>
+</tbody>
+</table>
+</div>
     </GlassBox>
   );
 }

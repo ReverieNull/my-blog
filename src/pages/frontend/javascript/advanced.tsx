@@ -8,38 +8,6 @@ import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
 import 'prismjs/components/prism-markup';
 
-const htmlSkeleton = `<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <title>HTML 示例</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header>
-    <h1>站点标题</h1>
-    <nav>
-      <a href="/">首页</a>
-      <a href="/about">关于</a>
-    </nav>
-  </header>
-
-  <main>
-    <section>
-      <h2>最新文章</h2>
-      <article>
-        <h3>文章标题</h3>
-        <p>正文内容……</p>
-      </article>
-    </section>
-  </main>
-
-  <footer>
-    <small>&copy; 2024 My Blog</small>
-  </footer>
-</body>
-</html>`;
 
 export default function JSAdvanced() {
   React.useEffect(() => {
@@ -48,11 +16,25 @@ export default function JSAdvanced() {
 
   return (
     <GlassBox>
-      <h1>HTML 基础速查表</h1>
-
-      <pre>
-        <code className="language-markup">{htmlSkeleton}</code>
-      </pre>
+     <div>
+<table>
+<thead>
+<tr><th>概念 / API</th><th>作用</th><th>代码示例</th><th>常见坑 &amp; 提示</th></tr>
+</thead>
+<tbody>
+<tr><td>Promise.allSettled</td><td>全部完成/失败都返回</td><td><code>Promise.allSettled([p1,p2])</code></td><td>不会短路</td></tr>
+<tr><td>async/await</td><td>同步写法异步</td><td><code>const res = await fetch(url)</code></td><td>外层需 async 函数</td></tr>
+<tr><td>Generator</td><td>可暂停函数</td><td><code>function* g(){ 'yield 1' }</code></td><td>需手动 next() 驱动</td></tr>
+<tr><td>Proxy</td><td>元编程拦截</td><td><code>new Proxy(target, handler)</code></td><td>性能损耗 &amp; 不可 polyfill</td></tr>
+<tr><td>Reflect</td><td>Proxy 配套工具</td><td><code>Reflect.get(obj,'key')</code></td><td>与 Proxy 组合使用</td></tr>
+<tr><td>WeakMap/WeakSet</td><td>键对象弱引用</td><td><code>const wm = new WeakMap()</code></td><td>键必须是对象，不可枚举</td></tr>
+<tr><td>Intl.DateTimeFormat</td><td>本地化日期</td><td><code>new Intl.DateTimeFormat('zh-CN').format(date)</code></td><td>IE11 需 polyfill</td></tr>
+<tr><td>Event Loop</td><td>宏/微任务队列</td><td>同步 → 微任务 → 宏任务</td><td>Promise.then 比 setTimeout 优先</td></tr>
+<tr><td>Service Worker</td><td>浏览器后台代理</td><td><code>navigator.serviceWorker.register('/sw.js')</code></td><td>HTTPS 强制要求</td></tr>
+<tr><td>WebAssembly</td><td>高性能字节码</td><td><code>WebAssembly.instantiateStreaming(fetch('a.wasm'))</code></td><td>与 JS 交互成本高</td></tr>
+</tbody>
+</table>
+</div>
     </GlassBox>
   );
 }

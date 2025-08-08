@@ -8,38 +8,6 @@ import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
 import 'prismjs/components/prism-markup';
 
-const htmlSkeleton = `<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <title>HTML 示例</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header>
-    <h1>站点标题</h1>
-    <nav>
-      <a href="/">首页</a>
-      <a href="/about">关于</a>
-    </nav>
-  </header>
-
-  <main>
-    <section>
-      <h2>最新文章</h2>
-      <article>
-        <h3>文章标题</h3>
-        <p>正文内容……</p>
-      </article>
-    </section>
-  </main>
-
-  <footer>
-    <small>&copy; 2024 My Blog</small>
-  </footer>
-</body>
-</html>`;
 
 export default function ViteAdvanced() {
   React.useEffect(() => {
@@ -48,86 +16,21 @@ export default function ViteAdvanced() {
 
   return (
     <GlassBox>
-      <h1>HTML 基础速查表</h1>
-
-      <h2>1. 文本标签</h2>
-      <p>
-        <strong>strong</strong>、<em>em</em>、<u>u</u>、<del>del</del>、
-        <mark>mark</mark>、<code>code</code>、<small>small</small>
-      </p>
-
-      <h2>2. 列表</h2>
-      <ul>
-        <li>无序列表 1</li>
-        <li>无序列表 2</li>
-      </ul>
-      <ol>
-        <li>有序列表 1</li>
-        <li>有序列表 2</li>
-      </ol>
-
-      <h2>3. 表格</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>标签</th>
-            <th>作用</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>&lt;table&gt;</td>
-            <td>表格容器</td>
-          </tr>
-          <tr>
-            <td>&lt;thead&gt;</td>
-            <td>表头</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h2>4. 媒体</h2>
-
-
-      <h2>5. 表单</h2>
-      <form>
-        <label>
-          姓名：
-          <input type="text" placeholder="请输入姓名" required />
-        </label>
-        <br />
-        <label>
-          邮箱：
-          <input type="email" placeholder="name@example.com" required />
-        </label>
-        <br />
-        <label>
-          年龄：
-          <input type="number" min="0" max="120" />
-        </label>
-        <br />
-        <label>
-          爱好（多选）：
-          <select multiple>
-            <option>阅读</option>
-            <option>音乐</option>
-            <option>运动</option>
-          </select>
-        </label>
-        <br />
-        <button type="submit">提交</button>
-      </form>
-
-      <h2>6. 折叠面板</h2>
-      <details>
-        <summary>点我展开详情</summary>
-        <p>这里是隐藏的内容，支持任意 HTML。</p>
-      </details>
-
-      <h2>7. 完整页面骨架示例</h2>
-      <pre>
-        <code className="language-markup">{htmlSkeleton}</code>
-      </pre>
+    <div>
+<table>
+<thead>
+<tr><th>概念</th><th>一句话讲解</th><th>代码示例</th><th>常见坑 & 提示</th></tr>
+</thead>
+<tbody>
+<tr><td>SSR</td><td>服务端渲染支持</td><td><code>vite preview</code></td><td>配合 SSR 框架如 Vue SSR</td></tr>
+<tr><td>环境变量</td><td>配置环境变量</td><td><code>.env</code> 文件</td><td>预定义 MODE 变量</td></tr>
+<tr><td>优化</td><td>优化构建性能和产出</td><td><code>build: &#123; minify: &#39;terser&#39; &#125;</code></td><td>使用 Rollup 插件优化</td></tr>
+<tr><td>TypeScript</td><td>支持 TypeScript</td><td>配置 <code>tsconfig.json</code></td><td>确保 Vite 配置正确支持</td></tr>
+<tr><td>代码分割</td><td>将代码分割成多个 chunk</td><td><code>build: &#123; rollupOptions: &#123; output: &#123; chunkFileNames: &#39;chunks/[name]-[hash].js&#39; &#125; &#125; &#125;</code></td><td>减少初始加载时间</td></tr>
+<tr><td>懒加载</td><td>组件懒加载</td><td><code>const MyComponent = () =&gt; import(&#39;./MyComponent.vue&#39;)</code></td><td>需配合 Suspense 使用</td></tr>
+</tbody>
+</table>
+</div>
     </GlassBox>
   );
 }

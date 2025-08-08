@@ -8,38 +8,7 @@ import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
 import 'prismjs/components/prism-markup';
 
-const htmlSkeleton = `<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <title>HTML 示例</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header>
-    <h1>站点标题</h1>
-    <nav>
-      <a href="/">首页</a>
-      <a href="/about">关于</a>
-    </nav>
-  </header>
 
-  <main>
-    <section>
-      <h2>最新文章</h2>
-      <article>
-        <h3>文章标题</h3>
-        <p>正文内容……</p>
-      </article>
-    </section>
-  </main>
-
-  <footer>
-    <small>&copy; 2024 My Blog</small>
-  </footer>
-</body>
-</html>`;
 
 export default function JSBase() {
   React.useEffect(() => {
@@ -48,11 +17,25 @@ export default function JSBase() {
 
   return (
     <GlassBox>
-      <h1>HTML 基础速查表</h1>
-
-      <pre>
-        <code className="language-markup">{htmlSkeleton}</code>
-      </pre>
+<div>
+<table>
+<thead>
+<tr><th>概念 / 语法</th><th>作用</th><th>代码示例</th><th>常见问题 &amp; 提示</th></tr>
+</thead>
+<tbody>
+<tr><td>var / let / const</td><td>作用域 &amp; 可变差异</td><td><code>const a = 1; let b = 2;</code></td><td>var 有变量提升</td></tr>
+<tr><td>原始类型</td><td>6 种原始 + symbol</td><td><code>typeof 123 // 'number'</code></td><td>null -&gt; 'object'</td></tr>
+<tr><td>模板字符串</td><td>字符串插值</td><td><code>`Hello $&#123;name&#125;`</code></td><td>反引号勿与引号混用</td></tr>
+<tr><td>解构赋值</td><td>快速取值</td><td><code>const x y = obj</code></td><td>嵌套时保持同名</td></tr>
+<tr><td>箭头函数</td><td>简洁 + 不绑定 this</td><td><code>(a,b) =&gt; a + b</code></td><td>无 arguments / 不能 new</td></tr>
+<tr><td>Promise</td><td>链式异步</td><td><code>new Promise((res, rej) =&gt; res(1))</code></td><td>忘记 return 会断链</td></tr>
+<tr><td>Array.map()</td><td>映射数组</td><td><code>[1,2,3].map(x =&gt; x*2)</code></td><td>不修改原数组</td></tr>
+<tr><td>Array.filter()</td><td>条件过滤</td><td><code>[1,2,3].filter(x =&gt; x &gt; 2)</code></td><td>返回新数组</td></tr>
+<tr><td>Array.reduce()</td><td>累加器</td><td><code>[1,2,3].reduce((a,b) =&gt; a+b,0)</code></td><td>初始值勿忘给</td></tr>
+<tr><td>localStorage</td><td>永久本地存储</td><td><code>localStorage.setItem('k','v')</code></td><td>5 MB 上限</td></tr>
+</tbody>
+</table>
+</div>
     </GlassBox>
   );
 }

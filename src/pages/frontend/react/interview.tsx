@@ -8,38 +8,7 @@ import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
 import 'prismjs/components/prism-markup';
 
-const htmlSkeleton = `<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <title>HTML 示例</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header>
-    <h1>站点标题</h1>
-    <nav>
-      <a href="/">首页</a>
-      <a href="/about">关于</a>
-    </nav>
-  </header>
 
-  <main>
-    <section>
-      <h2>最新文章</h2>
-      <article>
-        <h3>文章标题</h3>
-        <p>正文内容……</p>
-      </article>
-    </section>
-  </main>
-
-  <footer>
-    <small>&copy; 2024 My Blog</small>
-  </footer>
-</body>
-</html>`;
 
 export default function ReactInterview() {
   React.useEffect(() => {
@@ -48,11 +17,25 @@ export default function ReactInterview() {
 
   return (
     <GlassBox>
-      <h1>HTML 基础速查表</h1>
-
-      <pre>
-        <code className="language-markup">{htmlSkeleton}</code>
-      </pre>
+     <div>
+<table>
+<thead>
+<tr><th>问题</th><th>答案</th><th>追问</th></tr>
+</thead>
+<tbody>
+<tr><td>虚拟 DOM 原理？</td><td>JS 对象映射真实 DOM，diff 后最小化更新</td><td>key 作用？</td></tr>
+<tr><td>useEffect 依赖数组？</td><td>空数组只运行一次；不写每次渲染都运行</td><td>闭包陷阱？</td></tr>
+<tr><td>React.memo 失效？</td><td>props 浅比较，对象每次都新引用</td><td>自定义比较？</td></tr>
+<tr><td>setState 是同步还是异步？</td><td>在 React 事件中是异步；在 setTimeout 中是同步</td><td>批量更新？</td></tr>
+<tr><td>Redux 三大原则？</td><td>单一 store、只读 state、纯函数 reducer</td><td>immer 用法？</td></tr>
+<tr><td>React Router v6 变化？</td><td>Routes/Route、useNavigate、相对路径</td><td>Switch 替代？</td></tr>
+<tr><td>Portals 事件冒泡？</td><td>仍在 React 树，不穿透真实 DOM</td><td>如何阻止？</td></tr>
+<tr><td>ErrorBoundary 不能捕获？</td><td>异步、事件处理器、SSR 错误</td><td>全局监控？</td></tr>
+<tr><td>useCallback 何时用？</td><td>子组件用 React.memo 且父组件重渲染</td><td>依赖遗漏？</td></tr>
+<tr><td>Next.js vs CRA？</td><td>Next 带 SSR/SSG，CRA 纯客户端</td><td>部署方式？</td></tr>
+</tbody>
+</table>
+</div>
     </GlassBox>
   );
 }
