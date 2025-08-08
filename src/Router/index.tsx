@@ -133,6 +133,7 @@ import DPKNAPSACK  from '../pages/frontend/DynamicProgramming/KNAPSACK'
 import DPCS  from '../pages/frontend/DynamicProgramming/CS'
 import DPMS  from '../pages/frontend/DynamicProgramming/MS'
 import DPLIS  from '../pages/frontend/DynamicProgramming/LIS'
+import SortBase from '../pages/frontend/Sort/Sortbase'
 import SortQuick from '../pages/frontend/Sort/Quick'
 import SortMerge from '../pages/frontend/Sort/Merge'
 import SortInsertion from '../pages/frontend/Sort/Insertion'
@@ -419,6 +420,8 @@ const router = createBrowserRouter([
             element: <DPMS />},
           {path:'DynamicProgramming/LIS',
             element: <DPLIS />},
+          {path:'Sort/SortBase',
+            element: <SortBase />},
           {path:'Sort/Quick',
             element: <SortQuick />},
           {path:'Sort/Merge',

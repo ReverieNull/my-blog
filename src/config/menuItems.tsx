@@ -295,6 +295,7 @@ export const items: MenuItem[] = [
        },
       { key: 'list129', label: '排序',
         children: [
+          { key: 'list1290', label: <Link to="/app/frontend/Sort/SortBase">排序基础</Link>},
           { key: 'list1291', label: <Link to="/app/frontend/Sort/Quick">快速排序</Link>},
           { key: 'list1292', label: <Link to="/app/frontend/Sort/Merge">归并排序</Link>},
           { key: 'list1293', label: <Link to="/app/frontend/Sort/Insertion">插入排序</Link>},

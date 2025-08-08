@@ -8,38 +8,7 @@ import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
 import 'prismjs/components/prism-markup';
 
-const htmlSkeleton = `<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <title>HTML 示例</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header>
-    <h1>站点标题</h1>
-    <nav>
-      <a href="/">首页</a>
-      <a href="/about">关于</a>
-    </nav>
-  </header>
 
-  <main>
-    <section>
-      <h2>最新文章</h2>
-      <article>
-        <h3>文章标题</h3>
-        <p>正文内容……</p>
-      </article>
-    </section>
-  </main>
-
-  <footer>
-    <small>&copy; 2024 My Blog</small>
-  </footer>
-</body>
-</html>`;
 
 export default function LinkedListLinkedListBase() {
   React.useEffect(() => {
@@ -48,11 +17,137 @@ export default function LinkedListLinkedListBase() {
 
   return (
     <GlassBox>
-      <h1>HTML 基础速查表</h1>
+<div>
+      {/* 第一部分：链表常用 API */}
+      <h1>链表常用 API & 场景</h1>
+      <table>
+        <thead>
+          <tr><th>操作</th><th>作用</th><th>前端 / 算法场景</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>new ListNode(val)</code></td>
+            <td>创建节点 &#123;val, next&#125;</td>
+            <td>构造任意单链表</td>
+          </tr>
+          <tr>
+            <td><code>node.next</code></td>
+            <td>访问或修改后继指针</td>
+            <td>遍历、插入、反转</td>
+          </tr>
+          <tr>
+            <td><code>dummyHead</code> 哑节点</td>
+            <td>统一头插 / 删除逻辑，避免判空</td>
+            <td>头删、反转、合并、分割</td>
+          </tr>
+          <tr>
+            <td><code>slow / fast 双指针</code></td>
+            <td>找中点、判环、倒数第 k 个</td>
+            <td>面试高频模板</td>
+          </tr>
+          <tr>
+            <td><code>prev / curr 指针</code></td>
+            <td>原地反转链表</td>
+            <td>206. Reverse Linked List</td>
+          </tr>
+        </tbody>
+      </table>
+      <h1>链表常见算法</h1>
+      <table>
+        <thead>
+          <tr><th>题目</th><th>核心思路</th><th>关键代码片段</th><th>复杂度</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>反转链表</td>
+            <td>prev/curr 迭代翻转 next 指针</td>
+            <td>
+              <pre>{`let prev = null, curr = head;
+while (curr) {
+  const next = curr.next;
+  curr.next = prev;
+  prev = curr;
+  curr = next;
+}
+return prev;`}</pre>
+            </td>
+            <td>O(n) / O(1)</td>
+          </tr>
 
-      <pre>
-        <code className="language-markup">{htmlSkeleton}</code>
-      </pre>
+          <tr>
+            <td>链表中环检测</td>
+            <td>快慢指针相遇即环</td>
+            <td>
+              <pre>{`let slow = fast = head;
+while (fast && fast.next) {
+  slow = slow.next;
+  fast = fast.next.next;
+  if (slow === fast) return true;
+}
+return false;`}</pre>
+            </td>
+            <td>O(n) / O(1)</td>
+          </tr>
+
+          <tr>
+            <td>找环入口</td>
+            <td>快慢相遇后，再派一个指针从头同步走</td>
+            <td>
+              <pre>{`// 接上面相遇代码
+let ptr = head;
+while (ptr !== slow) {
+  ptr = ptr.next;
+  slow = slow.next;
+}
+return ptr;`}</pre>
+            </td>
+            <td>O(n) / O(1)</td>
+          </tr>
+
+          <tr>
+            <td>合并两个有序链表</td>
+            <td>哑节点 + 依次摘小节点</td>
+            <td>
+              <pre>{`const dummy = new ListNode(0);
+let cur = dummy, p1 = l1, p2 = l2;
+while (p1 && p2) {
+  if (p1.val < p2.val) { cur.next = p1; p1 = p1.next; }
+  else { cur.next = p2; p2 = p2.next; }
+  cur = cur.next;
+}
+cur.next = p1 || p2;
+return dummy.next;`}</pre>
+            </td>
+            <td>O(n+m) / O(1)</td>
+          </tr>
+
+          <tr>
+            <td>删除倒数第 k 个节点</td>
+            <td>快慢指针让快先走 k 步</td>
+            <td>
+              <pre>{`const dummy = new ListNode(0, head);
+let fast = slow = dummy;
+while (k--) fast = fast.next;
+while (fast.next) { fast = fast.next; slow = slow.next; }
+slow.next = slow.next.next;
+return dummy.next;`}</pre>
+            </td>
+            <td>O(n) / O(1)</td>
+          </tr>
+
+          <tr>
+            <td>回文链表</td>
+            <td>快慢找中点 + 反转后半 + 双指针比对</td>
+            <td>
+              <pre>{`// 1. 快慢找中点
+// 2. reverse(mid)
+// 3. 两端同时遍历比较`}</pre>
+            </td>
+            <td>O(n) / O(1)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     </GlassBox>
   );
 }

@@ -8,38 +8,6 @@ import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
 import 'prismjs/components/prism-markup';
 
-const htmlSkeleton = `<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <title>HTML 示例</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header>
-    <h1>站点标题</h1>
-    <nav>
-      <a href="/">首页</a>
-      <a href="/about">关于</a>
-    </nav>
-  </header>
-
-  <main>
-    <section>
-      <h2>最新文章</h2>
-      <article>
-        <h3>文章标题</h3>
-        <p>正文内容……</p>
-      </article>
-    </section>
-  </main>
-
-  <footer>
-    <small>&copy; 2024 My Blog</small>
-  </footer>
-</body>
-</html>`;
 
 export default function DPBase() {
   React.useEffect(() => {
@@ -48,86 +16,120 @@ export default function DPBase() {
 
   return (
     <GlassBox>
-      <h1>HTML 基础速查表</h1>
-
-      <h2>1. 文本标签</h2>
-      <p>
-        <strong>strong</strong>、<em>em</em>、<u>u</u>、<del>del</del>、
-        <mark>mark</mark>、<code>code</code>、<small>small</small>
-      </p>
-
-      <h2>2. 列表</h2>
-      <ul>
-        <li>无序列表 1</li>
-        <li>无序列表 2</li>
-      </ul>
-      <ol>
-        <li>有序列表 1</li>
-        <li>有序列表 2</li>
-      </ol>
-
-      <h2>3. 表格</h2>
+      <div>
+     <h1>动态规划基础</h1>
       <table>
         <thead>
           <tr>
-            <th>标签</th>
+            <th>要素</th>
             <th>作用</th>
+            <th>示例</th>
+            <th>复杂度</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>&lt;table&gt;</td>
-            <td>表格容器</td>
+            <td>状态定义 <code>dp[i]</code></td>
+            <td>子问题的最优解</td>
+            <td><code>dp[i] = 以 i 结尾的最长子串</code></td>
+            <td>-</td>
           </tr>
           <tr>
-            <td>&lt;thead&gt;</td>
-            <td>表头</td>
+            <td>转移方程</td>
+            <td>如何由小状态推大状态</td>
+            <td><code>dp[i] = dp[i-1] + cost</code></td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>初始条件</td>
+            <td>最小子问题答案</td>
+            <td><code>dp[0] = 0</code></td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>滚动数组</td>
+            <td>降维节省空间</td>
+            <td>斐波那契只存前两项</td>
+            <td>O(1) 空间</td>
           </tr>
         </tbody>
       </table>
-
-      <h2>4. 媒体</h2>
-
-
-      <h2>5. 表单</h2>
-      <form>
-        <label>
-          姓名：
-          <input type="text" placeholder="请输入姓名" required />
-        </label>
-        <br />
-        <label>
-          邮箱：
-          <input type="email" placeholder="name@example.com" required />
-        </label>
-        <br />
-        <label>
-          年龄：
-          <input type="number" min="0" max="120" />
-        </label>
-        <br />
-        <label>
-          爱好（多选）：
-          <select multiple>
-            <option>阅读</option>
-            <option>音乐</option>
-            <option>运动</option>
-          </select>
-        </label>
-        <br />
-        <button type="submit">提交</button>
-      </form>
-
-      <h2>6. 折叠面板</h2>
-      <details>
-        <summary>点我展开详情</summary>
-        <p>这里是隐藏的内容，支持任意 HTML。</p>
-      </details>
-
-      <h2>7. 完整页面骨架示例</h2>
-      <pre>
-        <code className="language-markup">{htmlSkeleton}</code>
-      </pre>
+      <h1>动态规划常见算法</h1>
+    <table>
+      <thead><tr><th>题号·名称</th><th>考点</th><th>极简代码</th><th>复杂度</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>70 爬楼梯</td>
+          <td>线性 DP</td>
+          <td><pre>{`const climbStairs=n=>{
+          let a=1,b=1;
+          for(let i=2;i<=n;i++){
+            [a,b]=[b,a+b]
+            }
+            return b
+            };`}</pre></td>
+          <td>O(n) / O(1)</td>
+        </tr>
+        <tr>
+          <td>53 最大子序和</td>
+          <td>前缀/连续</td>
+          <td><pre>{`const maxSubArray=a=>{
+          let cur=a[0],max=a[0];
+          for(let i=1;i<a.length;i++){
+              cur=Math.max(a[i],cur+a[i]);
+              max=Math.max(max,cur)
+              }
+          return max};`}</pre></td>
+          <td>O(n)</td>
+        </tr>
+        <tr>
+          <td>198 打家劫舍</td>
+          <td>线性 DP</td>
+          <td><pre>{`const rob=a=>{
+          let pre=0,cur=0;
+          for(const v of a){
+              [pre,cur]=[cur,Math.max(cur,pre+v)]
+              }
+          return cur};`} 
+            </pre></td>
+          <td>O(n) / O(1)</td>
+        </tr>
+        <tr>
+          <td>322 零钱兑换</td>
+          <td>完全背包</td>
+          <td><pre>{`const coinChange=(coins,amt)=>{
+          const dp=Array(amt+1).fill(amt+1);
+          dp[0]=0;
+          for(const c of coins){
+              for(let i=c;i<=amt;i++){
+                  dp[i]=Math.min(dp[i],dp[i-c]+1);
+              }
+          }
+              return dp[amt] > amt ? -1 : dp[amt] 
+          };`}</pre></td>
+          <td>O(n·amt)</td>
+        </tr>
+        <tr>
+          <td>5 最长回文子串</td>
+          <td>中心扩散 / DP</td>
+          <td><pre>{`const longestPalindrome=s=>{
+          let res='';
+          const expand=(l,r)=>{
+              while(l>=0&&r<s.length&&s[l]===s[r]){
+                  if(r-l+1>res.length)  res=s.slice(l,r+1);l--;r++
+                  }
+              };
+              for(let i=0;i<s.length;i++){
+                  expand(i,i);
+                  expand(i,i+1)
+              }
+          return res
+          };`}</pre></td>
+          <td>O(n²) / O(1)</td>
+        </tr>
+      </tbody>
+    </table>
+      </div>
     </GlassBox>
   );
 }

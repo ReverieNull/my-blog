@@ -8,38 +8,34 @@ import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
 import 'prismjs/components/prism-markup';
 
-const htmlSkeleton = `<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <title>HTML 示例</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header>
-    <h1>站点标题</h1>
-    <nav>
-      <a href="/">首页</a>
-      <a href="/about">关于</a>
-    </nav>
-  </header>
+const htmlSkeleton = `
+//思路就是排序二分双指针去重
+function threeSum(nums,target=0){
 
-  <main>
-    <section>
-      <h2>最新文章</h2>
-      <article>
-        <h3>文章标题</h3>
-        <p>正文内容……</p>
-      </article>
-    </section>
-  </main>
-
-  <footer>
-    <small>&copy; 2024 My Blog</small>
-  </footer>
-</body>
-</html>`;
+  nums.sort((a,b)=>a-b) //排个序先，确保是升序
+  const res = []  //满足条件的不止一个，先放个空数组存结果
+  for(let i = 0;i<nums.length;i++){  //开始循环
+   if (i && nums[i] === nums[i - 1]) continue; //给
+   i去重 
+  let left = i+1 ,right = nums.length-1 //左右指针
+    while(left < right){ //双指针循环     
+      let sum = nums[i] + nums[left] + nums[right] //计算sum
+      if(sum === target){ 
+        res.push([nums[i],nums[left],nums[right]]) 如果说满足条件，返回这三个元素
+        while(left < right && nums[left] === nums[left+1]) left++ //去重，去左重
+        while(left < right && nums[right] === nums[right-1]) right-- //还是去重，但去右重 
+        left++
+        right--
+      } else if(sum < target){ //sum小于目标值，左指针右移增大
+        left++
+      } else { //sum大于目标值，右指针左移减小
+        right--
+      }
+  }
+      }
+  return res;  //返回结果
+  }
+`;
 
 export default function ThreeSum() {
   React.useEffect(() => {
@@ -48,83 +44,11 @@ export default function ThreeSum() {
 
   return (
     <GlassBox>
-      <h1>HTML 基础速查表</h1>
-
-      <h2>1. 文本标签</h2>
+      <h1>三数之和</h1>
+      <h2>题目描述</h2>
       <p>
-        <strong>strong</strong>、<em>em</em>、<u>u</u>、<del>del</del>、
-        <mark>mark</mark>、<code>code</code>、<small>small</small>
+        给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 / target？找出所有满足条件且不重复的三元组。
       </p>
-
-      <h2>2. 列表</h2>
-      <ul>
-        <li>无序列表 1</li>
-        <li>无序列表 2</li>
-      </ul>
-      <ol>
-        <li>有序列表 1</li>
-        <li>有序列表 2</li>
-      </ol>
-
-      <h2>3. 表格</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>标签</th>
-            <th>作用</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>&lt;table&gt;</td>
-            <td>表格容器</td>
-          </tr>
-          <tr>
-            <td>&lt;thead&gt;</td>
-            <td>表头</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h2>4. 媒体</h2>
-
-
-      <h2>5. 表单</h2>
-      <form>
-        <label>
-          姓名：
-          <input type="text" placeholder="请输入姓名" required />
-        </label>
-        <br />
-        <label>
-          邮箱：
-          <input type="email" placeholder="name@example.com" required />
-        </label>
-        <br />
-        <label>
-          年龄：
-          <input type="number" min="0" max="120" />
-        </label>
-        <br />
-        <label>
-          爱好（多选）：
-          <select multiple>
-            <option>阅读</option>
-            <option>音乐</option>
-            <option>运动</option>
-          </select>
-        </label>
-        <br />
-        <button type="submit">提交</button>
-      </form>
-
-      <h2>6. 折叠面板</h2>
-      <details>
-        <summary>点我展开详情</summary>
-        <p>这里是隐藏的内容，支持任意 HTML。</p>
-      </details>
-
-      <h2>7. 完整页面骨架示例</h2>
       <pre>
         <code className="language-markup">{htmlSkeleton}</code>
       </pre>
