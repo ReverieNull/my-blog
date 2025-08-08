@@ -1,10 +1,9 @@
 /* src/assets/styles/Menu.css */
 
 html, body {
-  height: auto;
+  height: 100%;
   margin: 0;
   overflow: hidden;
-  overflow-x: hidden;
 }
 
 .menu-wrapper {
@@ -715,5 +714,35 @@ body.eye-protection-mode {
     max-height: 100vh !important;
     border-radius: 0;
     border-right: none;
+  }
+}
+/* 滚动条样式 */
+.menu-content::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.menu-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.menu-content::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.menu-content::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .menu-content {
+    width: 100%;
+    margin-left: 0;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
   }
 }

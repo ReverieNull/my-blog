@@ -28,7 +28,7 @@
   top: 60px;
   left: 0;
   bottom: 0;
-  overflow-y: auto;
+  overflow-y:hidden;
   z-index: 90;
   scrollbar-width: thin;
   scrollbar-color: rgba(100, 150, 255, 0.5) transparent;
@@ -45,7 +45,8 @@
   padding-left: 15px;
   flex-direction: column;
   position: relative;
-  overflow: hidden;
+  overflow-x:hidden;
+  overflow-y: auto;
   box-sizing: border-box;
   z-index: 10;
   transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);

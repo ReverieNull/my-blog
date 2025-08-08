@@ -19,7 +19,7 @@
   backdrop-filter: blur(10px) saturate(180%);
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
   overflow-y: auto;
-  overflow-x: hidden;
+  overflow-x: auto ;
 }
 
 /* 主题模式：仅换色，无流光 */

@@ -46,7 +46,7 @@ export default function HTMLBase() {
     <GlassBox>
             <input
         type="text"
-        placeholder="搜索标签/讲解/坑..."
+        placeholder="搜索标签..."
         value={filter}
         onChange={e => setFilter(e.target.value)}
       />
@@ -56,7 +56,7 @@ export default function HTMLBase() {
             <th>标签/属性</th>
             <th>讲解</th>
             <th>示例</th>
-            <th>坑 & 提示</th>
+            <th>提示</th>
           </tr>
         </thead>
         <tbody>
